@@ -4,10 +4,8 @@ class Solution {
         int[] ants = {5, 3, 1};
         
         for(int ant: ants) {
-            if(hp >= ant) {
-                answer += hp/ant;
-                hp %= ant;    
-            }
+            answer += hp/ant;
+            hp %= ant;    
         }
        
         return answer;
