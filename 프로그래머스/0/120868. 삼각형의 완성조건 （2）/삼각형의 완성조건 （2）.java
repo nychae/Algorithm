@@ -14,14 +14,7 @@ class Solution {
             min = sides[0];
         }
         
-        for(int i=max-min +1; i<=max; i++) {
-            answer++;
-        }
         
-        for(int i=max+1;i<max+min;i++) {
-            answer++;
-        }
-        
-        return answer;
+        return (max - (max-min)) + (min+max) - max -1;
     }
 }
