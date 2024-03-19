@@ -1,17 +1,8 @@
 import java.util.*;
 class Solution {
-     public static class Point {
-        public final long x, y;
-
-        public Point(long x, long y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
-    public static String[] solution(int[][] line) {
+     public static String[] solution(int[][] line) {
         String answer = "";
-        List<Point> dots = new ArrayList<>();
+        List<long[]> dots = new ArrayList<>();
         long xMax = Long.MIN_VALUE;
         long xMin = Long.MAX_VALUE;
 
@@ -42,7 +33,7 @@ class Solution {
                     if (y > yMax) yMax = y;
                     if (y < yMin) yMin = y;
 
-                    dots.add(new Point(x, y));
+                    dots.add(new long[]{x, y});
                 }
             }
         }
@@ -50,7 +41,7 @@ class Solution {
         return getStarStrArray(xMin, xMax, yMin, yMax, dots);
     }
 
-    public static String[] getStarStrArray(long xMin, long xMax, long yMin, long yMax, List<Point> dots) {
+    public static String[] getStarStrArray(long xMin, long xMax, long yMin, long yMax, List<long[]> dots) {
         char[][] result = new char[(int) (yMax - yMin + 1)][(int) (xMax - xMin + 1)];
         List<String> starsList = new ArrayList<>();
 
@@ -58,8 +49,8 @@ class Solution {
             Arrays.fill(chars, '.');
         }
 
-        for(Point point: dots) {
-            result[(int) (yMax - point.y)][(int) (point.x - xMin)] = '*';
+        for(long[] point: dots) {
+            result[(int) (yMax - point[1])][(int) (point[0] - xMin)] = '*';
         }
 
         String[] answer = new String[result.length];
