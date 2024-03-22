@@ -5,8 +5,7 @@ class Solution {
         
         for(int i=0;i<n_str.length();i++) {
             if(charArr[i] != '0') {
-                answer = n_str.substring(i);
-                break;
+                return n_str.substring(i);
             }
         }
         
