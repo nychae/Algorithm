@@ -4,6 +4,6 @@ class Solution {
         for(String s: myString.split("")) {
             answer += s.equals("A")? "B": "A";
         }
-        return answer.indexOf(pat) > -1? 1: 0;
+        return answer.contains(pat)? 1: 0;
     }
 }
