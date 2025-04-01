@@ -2,10 +2,9 @@ import java.util.*;
 class Solution {
     public String[] solution(String[] names) {
         List<String> answer = new ArrayList();
-        answer.add(names[0]);
         
-        for(int i=1;(i*5)<names.length;i+=1) {
-            answer.add(names[i*5]);
+        for(int i=0;i<names.length;i+=5) {
+            answer.add(names[i]);
         }
         
         return answer.toArray(new String[0]);
